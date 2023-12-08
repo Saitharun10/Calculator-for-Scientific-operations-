@@ -1,18 +1,336 @@
-*/config/development
-*/logs/log-*.php
-!*/logs/index.html
-*/cache/*
-!system/cache/*
-!*/cache/index.html
-!*/cache/.htaccess
+#include <iostream>
 
-user_guide_src/build/*
-user_guide_src/cilexer/build/*
-user_guide_src/cilexer/dist/*
-user_guide_src/cilexer/pycilexer.egg-info/*
+#include <cmath>
 
-#codeigniter 3
-application/logs/*
-!application/logs/index.html
-!application/logs/.htaccess
-/vendor/
+#include <vector>
+
+#include <map>
+
+class Calculator {
+
+public:
+
+double add(double a, double b) { return a + b
+
+}
+
+double subtract(double a, double b) { return a - b
+
+}
+
+double multiply(double a, double b) {
+
+return a ^ * b
+
+}
+
+double divide(double a, double b) {
+
+if ( b ==0) { std::cout << "Error: Division by zero is not allowed." << std ::endl; return NAN; // Retorn NaN for the error case
+
+}
+
+return a / b;
+
+}
+
+double squareRoot (double a) {
+
+if (a < 0) { std::cout << "Error: Cannot calculate square root of a negative number." << std::endl;
+
+}
+
+return NAN;
+
+return std::sqrt(a);
+
+}
+
+double power(double base, double exponent) { return std::pow(base, exponent);
+
+}
+
+double cube(double a) { return a * a * a;
+
+}
+
+double sine(double angle) { return std::sin(angle);
+
+}
+
+double cosine(double angle) { return std::cos(angle);
+
+}
+
+double tangent(double angle) { return std::tan(angle);
+
+}
+
+double logarithm(double base, double x) {
+
+if (base <= 1 || x <= 0) {
+
+std::cout << "Error: Invalid logarithm base or argument." << std::endl;
+
+return NAN;
+
+}
+
+return std::log(x) / std::log(base);
+
+}
+
+double hypotenuse (double a, double b) { return std::sqrt(a * a + b * b);
+
+}
+
+double pi() { return M_PI;
+
+}
+
+void clearMemory() { memory.clear();
+
+}
+
+void storeValue(std::string key, double value) { memory[key] = value; }
+
+double recallValue(std::string key) { if (memory.find(key) != memory.end()) { return memory[key];
+
+}
+
+std::cout << "Error: Value with key memory." << std::endl;
+
+<<< key << ""
+
+not found in
+
+return NAN;
+
+}
+
+private:
+
+std::map<std::string, double> memory;
+
+int main() {
+
+Calculator calc;
+
+char operation;
+
+double num1, num2; std::string key;
+
+std::cout << "Scientific Calculator" << std::endl; std::cout << "Available operations: +, -, *, /, sqrt(s), cube(c), power
+
+(^), sin(i), cos(i), tan(i) , log(1), x ^ 3 * (x) , hvp(h) pi(p) " << std ::endl;
+
+std::cout << "Additional operations: M+, MR, MC, C ^ prime prime << std::endl;
+
+while (true) {
+
+std::cout << "Enter an operation (or 'Q' to quit): ": std::cin >> operation;
+
+if (operation == 'Q' || operation == 'q') {
+
+break;
+
+}
+switch (operation) {
+
+case '+':
+
+std::cout << "Enter two numbers: ";
+
+std::cin >> num1 >> num2;
+
+std::cout << "Result: <<< calc.add(num1, num2) <<< std
+
+::endl;
+
+break;
+
+case '-':
+
+std::cout << "Enter two numbers: ";
+
+std::cin >> num1 >> num2; std::cout << "Result: <<< calc.subtract(num1, num2) << std
+
+::endl;
+
+break;
+
+case '*':
+
+std::cout << "Enter two numbers: ":
+
+std::cin >> num1 >> num2;
+
+std::cout << "Result: << calc.multiply(num1, num2) <<< std
+
+::endl;
+
+break;
+
+case '/':
+
+std::cout << "Enter two numbers: ":
+
+std::cin >> num1 >> num2;
+
+std::cout << "Result: " << calc.divide(num1, num2) << std
+
+::endl;
+
+break;
+
+case 's':
+
+std::cout << "Enter a number: ":
+
+std::cin >> num1;
+
+std::cout << "Result: " << calc.squareRoot(num1) <<< std
+
+::endl;
+break;
+
+case '':
+
+std::cout << "Enter a base and exponent: ";
+
+std::cin >> num1 >> num2;
+
+std::cout << "Result: <<< calc.power(num1, num2) <<<< std
+
+::endl;
+
+break;
+
+case 'i':
+
+std::cout << "Enter an angle in degrees: ";
+
+std::cin >> num1;
+
+std::cout << "Result (sin):
+
+<< calc.sine(num1 * M_PI /
+
+180) <<< std::endl;
+
+A std::cout << "Result (cos): <<< calc.cosine(num1 * M_PI /
+
+180) <<< std::endl;
+
+std::cout << "Result (tan);
+
+<< calc.tangent(num1 * M_PI
+
+180) << std::endl;
+
+break;
+
+case '1':
+
+char base;
+
+std::cout << "Choose logarithm base (e for natural, 10 for
+
+base 10): ";
+
+std::cin >> base;
+
+std::cout << "Enter a number: ";
+
+std::cin >> num1;
+
+if (base
+
+'e') {
+
+std::cout << "Result (In): " << calc.logarithm(M_E.
+
+num1) << std::endl;
+
+} else if (base == '10') {
+
+std::cout << "Result (log): <<< calc.logarithm(10,
+
+num1) <<< std::endl;
+
+} else {
+
+std::cout << "Invalid logarithm base." << std::endl;
+
+}
+
+break;
+
+case 'x':
+
+std::cout << "Enter a number to calculate x^3: ";
+
+std::cin >> num1;
+
+std::cout << "Result: " << calc.cube(num1) << std::endl;
+
+break;
+
+case 'h':
+
+std::cout << "Enter the lengths of two sides to calculate
+
+the hypotenuse: ";
+
+std::cin >> num1 >> num2;
+
+std::cout << "Result: " << alc.hypotenuse(num1, num2) <<
+
+std::endl;
+
+break;
+
+case 'p':
+
+std::cout << "Result: <<< calc.pi() << std::endl;
+
+break;
+
+case 'M':
+
+std::cout << "Enter a key and value to store in memory: "; std::cin >> key >> num1;
+
+calc.storeValue(key, num1);
+
+break;
+
+case 'R':
+
+std::cout << "Enter a key to recall from memory: ":
+
+std::cin >> key:
+
+std::cout << "Recalled value: " << calc.recallValue(key) <<
+
+std::endl;
+
+break;
+case 'C':
+
+calc.clearMemory();
+
+std::cout << "Memory cleared." << std::endl;
+
+break;
+
+default:
+
+std::cout << "Invalid operation." << std::endl;
+
+}
+
+}
+
+return 0;
+
+}
